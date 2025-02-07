@@ -34,7 +34,7 @@ const ProductsPage = () => {
     navigate(`/products?category=${category.slug}`);
   };
   // Fetch products on component mount
-  const { products, filteredProducts, error, isLoading } = useSelector(
+  const { filteredProducts, error, isLoading } = useSelector(
     (state) => state.productsReducer
   );
 
@@ -45,10 +45,10 @@ const ProductsPage = () => {
         <div className="text-lg font-semibold text-gray-800 mb-4">
           Filter by Category
         </div>
-        {categories.length > 0 ? (
-          categories.map((category) => (
+        {categories?.length > 0 ? (
+          categories?.map((category) => (
             <div
-              key={category._id}
+              key={category?._id}
               className="flex justify-start items-center gap-2 mb-2 cursor-pointer"
               onClick={() => handleCategoryClick(category)}
             >
@@ -56,13 +56,13 @@ const ProductsPage = () => {
                 type="checkbox"
                 checked={
                   new URLSearchParams(location.search).get("category") ===
-                  category.slug
+                  category?.slug
                 }
                 readOnly
                 className="accent-orange-500 h-4 w-4 cursor-pointer"
               />
               <label className="cursor-pointer text-gray-700 text-sm">
-                {category.name}
+                {category?.name}
               </label>
             </div>
           ))
@@ -93,7 +93,7 @@ const ProductsPage = () => {
           ) : (
             filteredProducts &&
             filteredProducts?.map((product) => (
-              <ProductCard key={product._id} product={product} />
+              <ProductCard key={product?._id} product={product} />
             ))
           )}
         </div>

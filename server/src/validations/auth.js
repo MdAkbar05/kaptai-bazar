@@ -19,10 +19,8 @@ const validateUserRegistration = [
     .withMessage("Password is required")
     .isLength({ min: 6 })
     .withMessage("Password should be at least 6 characters long")
-    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
-    .withMessage(
-      "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
-    ),
+    .matches(/^(?=.*[A-Za-z])(?=.*\d).{6,}$/)
+    .withMessage("Password must contain at least one letter and one number"),
   body("address")
     .trim()
     .notEmpty()

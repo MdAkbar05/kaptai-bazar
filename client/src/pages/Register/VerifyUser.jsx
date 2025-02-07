@@ -13,7 +13,7 @@ const VerifyUser = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/users/verify?otp=${otp}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/verify?otp=${otp}`,
         {
           withCredentials: true, // Ensure cookies are sent with the request
         }

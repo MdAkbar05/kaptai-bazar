@@ -286,7 +286,7 @@ const productsSlice = createSlice({
     builder.addCase(deleteProduct.fulfilled, (state, action) => {
       state.isLoading = false;
       state.products = state.products.filter(
-        (product) => product.slug !== action.payload
+        (product) => product?.slug !== action.payload
       );
       state.error = null;
     });
@@ -307,7 +307,7 @@ const productsSlice = createSlice({
     });
     builder.addCase(searchProducts.rejected, (state, action) => {
       state.isLoading = false;
-      state.error = action.payload;
+      state.error = action.payload.error;
     });
   },
 });
