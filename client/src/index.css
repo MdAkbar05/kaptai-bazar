@@ -1,0 +1,65 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+body {
+  background-color: #fffbe6;
+  font-family: "Arvo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.logo path {
+  fill: white;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex1 {
+  flex: 0.5;
+}
+.flex2 {
+  flex: 2;
+}
+.flex3 {
+  flex: 3;
+}
+.flex4 {
+  flex: 4;
+}
+
+.spinnerCircle {
+  @apply border-gray-300 size-10 animate-spin rounded-full border-8 border-t-blue-600;
+}
+
+.slick-dots {
+  margin-bottom: -200px;
+}
+
+.slick-arrow {
+  background-color: #2ea100 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.slick-prev {
+  left: 25px !important;
+  transform: scale(1.5) !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 10px !important;
+  transform: scale(1.5) !important;
+  z-index: 1;
+}
+.bg-hero {
+  background-image: url("/public/bg-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
