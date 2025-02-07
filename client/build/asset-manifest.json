@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4a1a4ee3.css",
+    "main.js": "/static/js/main.b0843a1d.js",
+    "static/media/cate2.svg": "/static/media/cate2.b466c7367e174ce46e659f73cb63ea74.svg",
+    "static/media/cate5.svg": "/static/media/cate5.3a50e727c9a49dd99fb8158da5cec904.svg",
+    "static/media/banner4.png": "/static/media/banner4.5100517cd2e9d297e25f.png",
+    "static/media/bg-hero.jpg": "/static/media/bg-hero.879c2a8911e4399dc076.jpg",
+    "static/media/cate4.svg": "/static/media/cate4.c6e25103250f047a735d374bc4ba2b97.svg",
+    "static/media/cate3.svg": "/static/media/cate3.6ac47bf1d45d8ff6ef9c18708478d592.svg",
+    "static/media/tonmoy.jpg": "/static/media/tonmoy.a766a070e665426dc5ed.jpg",
+    "static/media/cate1.svg": "/static/media/cate1.9e47d13307ac2df60631edec592d1cbc.svg",
+    "static/media/fronzen_snacks.png": "/static/media/fronzen_snacks.3d7292007b655f4cb293.png",
+    "static/media/tea.png": "/static/media/tea.d7e207549d1550f58ea8.png",
+    "static/media/drinks.png": "/static/media/drinks.a43b8232a86263712eea.png",
+    "static/media/coffee.png": "/static/media/coffee.98c277bd9e6784bd540a.png",
+    "static/media/rabbi.jpg": "/static/media/rabbi.dfe6974eff62a96d5070.jpg",
+    "static/media/logo.jpg": "/static/media/logo.3af2b983ce2a3a20346d.jpg",
+    "static/media/riaz.jpg": "/static/media/riaz.7806855d363da76dc334.jpg",
+    "static/media/title.png": "/static/media/title.b0440b12f161b4b18d3a.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "index.html": "/index.html",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/shipping.svg": "/static/media/shipping.eef3848527b85b37f8348ddffd05f582.svg",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/star.svg": "/static/media/star.0bd30439541e51376693ebb2c5d7f0c1.svg",
+    "static/media/verified.svg": "/static/media/verified.495298444a17ccacb79cf7d1da9e6940.svg",
+    "static/media/done.svg": "/static/media/done.8fefe89e493bce03edb4e2d81cee4570.svg",
+    "main.4a1a4ee3.css.map": "/static/css/main.4a1a4ee3.css.map",
+    "main.b0843a1d.js.map": "/static/js/main.b0843a1d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a1a4ee3.css",
+    "static/js/main.b0843a1d.js"
+  ]
+}
