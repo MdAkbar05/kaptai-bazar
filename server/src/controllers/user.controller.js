@@ -132,6 +132,7 @@ const processRegister = async (req, res, next) => {
     res.cookie("userToken", userToken, {
       httpOnly: true,
       secure: true,
+      sameSite: "none",
       maxAge: 10 * 60 * 1000,
     });
 
