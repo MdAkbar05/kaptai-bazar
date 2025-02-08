@@ -84,7 +84,11 @@ export const Users = () => {
                     <tr key={user._id} className="text-left">
                       <td className="py-3 px-4 border-b">
                         <img
-                          src={user.image}
+                          src={
+                            user.image
+                              ? user.image
+                              : `/images/users/default.png`
+                          }
                           alt={user.name}
                           className="w-10 h-10 rounded-full mx-auto"
                         />
