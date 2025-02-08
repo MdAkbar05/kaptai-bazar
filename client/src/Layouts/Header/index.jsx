@@ -126,7 +126,11 @@ export default function Header() {
                       className="ml-4 text-background hover:text-secondary flex items-center"
                     >
                       <img
-                        src={profile.img}
+                        src={
+                          profile.image
+                            ? profile.image
+                            : `/images/users/default.png`
+                        }
                         alt={profile.userName}
                         className="w-10 h-10 rounded-full mx-auto border-2 border-background p-0.5"
                       />

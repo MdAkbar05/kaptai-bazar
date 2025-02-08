@@ -29,7 +29,6 @@ userRouter.get("/:id([0-9a-fA-F]{24})", isLoggedIn, getUserById);
 userRouter.post(
   "/process-register/",
   isLoggedOut,
-  userProfileUpload.single("image"),
   validateUserRegistration,
   runValidation,
   processRegister

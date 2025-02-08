@@ -79,11 +79,6 @@ const getUserById = async (req, res, next) => {
 const processRegister = async (req, res, next) => {
   try {
     const { name, email, password, address, phone } = req.body;
-    const imgPath = req.file ? req.file.filename : "default.png";
-
-    console.log(req.file);
-
-    const image = `/images/users/${imgPath}`;
 
     //user exist check
     const userExists = await User.exists({ email: email });
@@ -108,7 +103,6 @@ const processRegister = async (req, res, next) => {
         password,
         address,
         phone,
-        image,
       },
       OTP: otp,
     };
@@ -122,6 +116,7 @@ const processRegister = async (req, res, next) => {
       <h2>Hello ${name}!</h2>
       <p>Your OTP code for account activation is: <strong>${otp}</strong></p>
       <p>This code is valid for the next 10 minutes.</p>
+      <strong>Kaptai Bazar</strong>
     `,
     };
     // send email with nodemailer
@@ -153,9 +148,10 @@ const processRegister = async (req, res, next) => {
 const activateUserAccount = async (req, res, next) => {
   try {
     const otp = req.query.otp;
-    console.log(otp);
     // Check if the OTP sent in the request matches the one stored in the cookie
     const userToken = req.cookies.userToken;
+
+    console.log(userToken);
     if (!userToken) {
       res.status(404).json({ message: "OTP has expired" });
     }
@@ -186,11 +182,9 @@ const delteUserById = async (req, res, next) => {
   try {
     const id = req.params.id;
     const options = { password: 0 };
-    // const user = await findWithId(User, id, options);
 
     const user = await User.findByIdAndDelete({ _id: id, isAdmin: false });
-    const userImagePath = user.image;
-    deleteUserImage(userImagePath);
+
     if (!user) {
       throw createError(404, "User not found");
     }
@@ -218,22 +212,6 @@ const updateUserById = async (req, res, next) => {
       if (allowedField.includes(key)) {
         updates[key] = req.body[key];
       }
-    }
-
-    const img = req.file ? req.file : null;
-    if (img) {
-      if (img.size > 1024 * 1024 * 2) {
-        throw createError(400, "Product image size should not exceed 2MB.");
-      }
-    }
-
-    const originalname = req.file ? req.file.originalname : null;
-
-    const image =
-      !originalname === null ? `/images/users/${originalname}` : null;
-    if (image) {
-      deleteUserImage(user.image);
-      updates.image = image;
     }
 
     const updatedUser = await User.findByIdAndUpdate(
@@ -340,8 +318,24 @@ const handleUpdatePasswords = async (req, res, next) => {
 
     return successResponse(res, {
       statusCode: 200,
-      message: "User was updated successfully.",
+      message: "User password updated successfully.",
       payload: { users },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+const handleResetPassword = async (req, res, next) => {
+  try {
+    const { token, password } = req.body;
+    const updatedUser = await resetPassword(token, password);
+    if (!updatedUser) {
+      throw createError(404, "User with this token does not exist");
+    }
+    return successResponse(res, {
+      statusCode: 200,
+      message: "User account password reset successfully",
+      payload: updatedUser,
     });
   } catch (error) {
     next(error);
@@ -359,23 +353,6 @@ const handleForgetPassword = async (req, res, next) => {
       statusCode: 200,
       message: `Please go to your ${email} for completing your reset password process.`,
       payload: token,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
-const handleResetPassword = async (req, res, next) => {
-  try {
-    const { token, password } = req.body;
-    const updatedUser = await resetPassword(token, password);
-    if (!updatedUser) {
-      throw createError(404, "User with this token does not exist");
-    }
-    return successResponse(res, {
-      statusCode: 200,
-      message: "User account password reset successfully",
-      payload: updatedUser,
     });
   } catch (error) {
     next(error);

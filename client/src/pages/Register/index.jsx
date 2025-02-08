@@ -14,23 +14,16 @@ const Register = () => {
     password: "",
     address: "",
     phone: "",
-    image: null,
   });
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, files } = e.currentTarget;
-    if (name === "image") {
-      setFormData((prevData) => ({
-        ...prevData,
-        image: files[0],
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -175,20 +168,6 @@ const Register = () => {
           <label className="absolute top-0 left-2 text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5 peer-placeholder-shown:left-3 peer-focus:top-0 peer-focus:left-2 peer-focus:text-xs">
             Phone
           </label>
-        </div>
-
-        {/* Image Upload */}
-        <div className="relative">
-          <label className="block text-sm font-medium text-gray-700">
-            Profile Image (Optional)
-          </label>
-          <input
-            type="file"
-            name="image"
-            accept="image/*"
-            onChange={handleChange}
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
-          />
         </div>
 
         {/* Error Message */}

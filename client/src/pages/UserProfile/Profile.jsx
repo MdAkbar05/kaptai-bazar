@@ -47,7 +47,7 @@ const Profile = () => {
 
         <div className="flex flex-col items-center p-6">
           <img
-            src={user.img}
+            src={user.img ? user.img : `/images/users/default.png`}
             alt={user.userName}
             className="w-32 h-32 rounded-full object-cover border-4 border-primary"
           />
@@ -117,7 +117,7 @@ const Profile = () => {
                       className="flex items-center gap-4 py-2"
                     >
                       <img
-                        src={item.product.image}
+                        src={item.product?.image}
                         alt={item.name}
                         className="w-auto h-16 object-cover rounded"
                       />

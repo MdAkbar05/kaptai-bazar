@@ -40,14 +40,15 @@ export const handleRegister = createAsyncThunk(
   "auth/handleRegister",
   async (data, { rejectWithValue }) => {
     try {
-      const formData = new FormData();
-      for (const key in data) {
-        formData.append(key, data[key]);
-      }
       const response = await axios.post(
         `${baseUrl}/api/users/process-register`,
-        formData,
-        { withCredentials: true }
+        data,
+        { withCredentials: true },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       console.log(response.data);
       return response.data;

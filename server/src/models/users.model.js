@@ -31,11 +31,6 @@ const userSchema = new Schema(
       minlength: [6, "User name can be use minimum 6 characters"],
       set: (v) => bcrypt.hashSync(v, bcrypt.genSaltSync(10)),
     },
-    image: String,
-    address: {
-      type: String,
-      required: [true, "User address is required"],
-    },
     phone: {
       type: String,
       required: [true, "User phone is required"],
