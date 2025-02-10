@@ -19,11 +19,9 @@ const Category = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  debugger;
   const { categories } = useSelector((state) => state.categoryReducer);
   const { products } = useSelector((state) => state.productsReducer);
 
-  dispatch(getProducts());
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
