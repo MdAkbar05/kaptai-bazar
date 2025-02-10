@@ -14,6 +14,7 @@ const categoryRouter = require("./routes/categoryRouter");
 const productsRouter = require("./routes/productsRouter");
 const orderRouter = require("./routes/orderRouter");
 const reviewRouter = require("./routes/reviewRouter");
+const mediaReview = require("./routes/mediaReviewRouter");
 
 const app = express();
 app.use(xssClean());
@@ -39,6 +40,7 @@ app.use("/api/categories/", categoryRouter);
 app.use("/api/products/", productsRouter);
 app.use("/api/reviews/", reviewRouter);
 app.use("/api/orders/", orderRouter);
+app.use("/api/mediaReview/", mediaReview);
 
 app.get("/", (req, res) => {
   res.status(200).json({

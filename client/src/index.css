@@ -4,6 +4,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fffbe6;
   font-family: "Arvo", serif;
@@ -59,6 +63,13 @@ body {
 }
 .bg-hero {
   background-image: url("/public/bg-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mockupBG {
+  background-image: url("/public/mobileMockup.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

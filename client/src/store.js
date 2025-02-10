@@ -6,6 +6,7 @@ import cartSlice from "./features/cartSlice";
 import favouriteSlice from "./features/favouriteSlice";
 import orderSlice from "./features/orderSlice";
 import authSlice from "./features/authSlice";
+import mediaReviewSlice from "./features/mediaReviewSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     cartReducer: cartSlice,
     favouriteReducer: favouriteSlice,
     orderReducer: orderSlice,
+    mediaReviewReducer: mediaReviewSlice,
   },
 });

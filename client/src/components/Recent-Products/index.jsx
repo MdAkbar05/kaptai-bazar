@@ -1,87 +1,55 @@
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getProductBySlug, getProducts } from "../../features/productSlice";
-import { addToCart } from "../../features/cartSlice";
-import { toast } from "react-toastify";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { fetchMediaReview } from "../../features/mediaReviewSlice";
 
-const RecentProduct = () => {
-  const navigate = useNavigate();
-  const { products } = useSelector((state) => state.productsReducer);
+const MediaFeedback = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
-  // Sort products by createdAt field in descending order
-  const sortedProducts = products
-    .slice()
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    .slice(0, 15);
-  return (
-    <div className="bg-white py-16 mt-8 space-y-8">
-      {/* Title  */}
+  const { mediaReviews, isLoading } = useSelector(
+    (state) => state.mediaReviewReducer
+  );
 
-      <h2 className="text-lg md:text-3xl font-bold text-primary text-center mb-8">
-        Recent Products
+  useEffect(() => {
+    dispatch(fetchMediaReview());
+  }, [dispatch]);
+
+  return (
+    <div className="bg-white h-full relative py-6 space-y-8 my-8">
+      <h2 className="text-3xl font-bold text-primary text-center mb-8">
+        Popular Item
       </h2>
       {/* Horizontal Line */}
-      <hr className="w-24 mx-auto border-primary border-2 mb-12" />
-      <div className="grid sm:grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-5 justify-center px-6 mx-auto items-center">
-        {/* design card using image, category, name  rating, price and add to cart  */}
-        {/* Design card using image, category, name, rating, price and add to cart */}
-        {sortedProducts?.map((product) => (
-          <div
-            key={product._id}
-            className="border p-4 rounded-lg shadow-md border-secondary bg-coffe space-y-2"
-          >
-            <div
-              className="h-56 w-full p-4 object-cover relative"
-              onClick={() => {
-                dispatch(getProductBySlug(product.slug));
-                navigate("/current-product");
-              }}
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className=" h-full mx-auto object-cover mb-4 shadow-2xl shadow-coffe"
-              />
-            </div>
-            <div className="text-sm border inline-flex  px-2 py-1 rounded-xl mb-2">
-              {product.category.name}
-            </div>
-            <h3 className="text-lg font-semibold ">{product.name}</h3>
+      <hr className=" w-24 mx-auto border-primary border-2 mb-12" />
 
-            <div className="flex justify-between">
-              <span className="flex ">
-                {Array.from({ length: product.ratings }, (_, i) => (
-                  <span key={i} className="text-lg">
-                    ⭐
-                  </span>
-                ))}{" "}
-              </span>
-              <span className="font-semibold">
-                {product.ratings.toFixed(2)}
-              </span>
-            </div>
-            <div className="text-lg font-bold ">${product.price}</div>
-            <button
-              onClick={() => {
-                dispatch(addToCart(product));
-                toast.success("Product added successfully");
-              }}
-              className="w-full flexCenter gap-x-2 bg-hightlight text-white py-2 px-4 rounded hover:bg-green-600"
+      {isLoading && (
+        <div className="text-center">
+          <h3 className="text-xl text-gray-600">Loading reviews...</h3>
+        </div>
+      )}
+      {!isLoading && mediaReviews?.length === 0 && (
+        <div className="text-center">
+          <h3 className="text-xl text-gray-600">No reviews found.</h3>
+        </div>
+      )}
+      <div className="flex flex-wrap gap-6">
+        {mediaReviews &&
+          mediaReviews.map((review) => (
+            <div
+              key={review._id}
+              className="relative border-b border-gray-200 p-4 mockupBG w-48 h-72 flexCenter rounded-lg"
             >
-              <MdOutlineShoppingCart size={24} />
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        ))}
+              <div className="flex items-center gap-4 overflow-hidden w-[100px] h-52 ">
+                <img
+                  src={review.image}
+                  alt="review"
+                  className="h-full w-full object-cover rounded-lg -translate-y-1 -translate-x-0.5"
+                />
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
 };
 
-export default RecentProduct;
+export default MediaFeedback;

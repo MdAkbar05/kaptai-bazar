@@ -32,6 +32,7 @@ import SearchPage from "../pages/SearchPage";
 import AuthUser from "../components/AuthRoute/AuthUser";
 import About from "../pages/Abouts";
 import ContactForm from "../pages/Contacts/ContactForm";
+import Reviews from "../pages/Dashboard/components/reviews/reviews";
 
 const Index = () => {
   // set your conditional Route or Private Routes
@@ -62,6 +63,7 @@ const Index = () => {
           <Route path="products" element={<Products />} />
           <Route path="customers" element={<Customers />} />
           <Route path="Orders" element={<Orders />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

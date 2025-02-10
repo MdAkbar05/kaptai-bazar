@@ -5,11 +5,11 @@ import { Link, useLocation } from "react-router-dom";
 const BottomBar = () => {
   const location = useLocation();
   return (
-    <div className=" bg-secondary backdrop-blur-md text-black">
+    <div className=" bg-secondary backdrop-blur-md text-gray-900">
       <div className="container mx-auto px-6 py-1  flex items-center md:gap-6 sm:gap-1  ">
         <Link
           to="/"
-          className={`flexCenter rounded-full px-3 py-1  ${
+          className={`sm:text-sm md:text-base flexCenter rounded-full px-3 py-1  ${
             location.pathname === "/" ? " bg-white text-black" : ""
           }`}
           title="Home"
@@ -21,7 +21,7 @@ const BottomBar = () => {
           <div className=" flexCenter  md:gap-4 sm:gap-0.5">
             <Link
               to="/products"
-              className={`flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
+              className={`sm:text-sm md:text-base flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
                 location.pathname === "/products" ? " bg-white text-black" : ""
               }`}
               title="Categories"
@@ -30,7 +30,7 @@ const BottomBar = () => {
             </Link>
             <Link
               to="/offers"
-              className={`flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
+              className={`sm:text-sm md:text-base flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
                 location.pathname === "/offers" ? "bg-white text-black" : ""
               }`}
               title="Offers"
@@ -39,7 +39,7 @@ const BottomBar = () => {
             </Link>
             <Link
               to="/contact"
-              className={`flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
+              className={`sm:text-sm md:text-base flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
                 location.pathname === "/contact" ? "bg-white text-black" : ""
               }`}
               title="Contact"
@@ -48,7 +48,7 @@ const BottomBar = () => {
             </Link>
             <Link
               to="/about"
-              className={`flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
+              className={`sm:text-sm md:text-base flexCenter rounded-full md:px-3 sm:px-1.5 py-1 ${
                 location.pathname === "/about" ? "bg-white text-black" : ""
               }`}
               title="Abouts"

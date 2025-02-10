@@ -12,7 +12,7 @@ import {
 import { GiBuyCard } from "react-icons/gi";
 import { AiOutlineTransaction } from "react-icons/ai";
 import { IoPeopleCircleOutline } from "react-icons/io5";
-import { FaSellsy } from "react-icons/fa6";
+import { FaRedhat } from "react-icons/fa6";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 const DashboardRouter = () => {
@@ -30,6 +30,11 @@ const DashboardRouter = () => {
       label: "Customers",
       path: "/dashboard/customers",
       icon: <MdPeopleAlt />,
+    },
+    {
+      label: "Reviews",
+      path: "/dashboard/reviews",
+      icon: <FaRedhat />,
     },
   ];
 
