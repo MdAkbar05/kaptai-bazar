@@ -16,7 +16,7 @@ const MediaFeedback = () => {
   return (
     <div className="bg-white h-full relative py-6 space-y-8 my-8">
       <h2 className="text-3xl font-bold text-primary text-center mb-8">
-        Popular Item
+        Social Media Feedback
       </h2>
       {/* Horizontal Line */}
       <hr className=" w-24 mx-auto border-primary border-2 mb-12" />
